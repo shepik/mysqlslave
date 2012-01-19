@@ -73,8 +73,9 @@ public:
 		return &(it->second);
 	}
 
-private:
 	typedef std::map<std::string, CColumnDesc, CCaseIgnorer> data_type;
+
+private:
 	data_type _data;
 
 public:
@@ -85,7 +86,8 @@ public:
 	virtual ~CTable() throw()
 	{
 	}
-	
+	const data_type& get_columns() const { return _data; }
+
 	virtual int tune(uint8_t* data, size_t size, const CFormatDescriptionLogEvent& fmt);
 	virtual bool is_valid() const
 	{
